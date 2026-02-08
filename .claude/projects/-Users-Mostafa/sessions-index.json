@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "sessionId": "98c451a8-363d-410a-b2af-bccc5351916c",
+      "fullPath": "/Users/Mostafa/.claude/projects/-Users-Mostafa/98c451a8-363d-410a-b2af-bccc5351916c.jsonl",
+      "fileMtime": 1769415559342,
+      "firstPrompt": "!  /plugin marketplace add davila7/claude-code-templates",
+      "summary": "Adding Claude Code Templates Plugin Marketplace",
+      "messageCount": 9,
+      "created": "2025-12-31T14:25:11.545Z",
+      "modified": "2025-12-31T14:27:30.019Z",
+      "gitBranch": "",
+      "projectPath": "/Users/Mostafa",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "d58adc58-4d7b-4e8e-8a49-3e00ce7e8de8",
+      "fullPath": "/Users/Mostafa/.claude/projects/-Users-Mostafa/d58adc58-4d7b-4e8e-8a49-3e00ce7e8de8.jsonl",
+      "fileMtime": 1769415560132,
+      "firstPrompt": "how do I copy a directory to my pwd  (base) ➜  ~ cd .claude (base) ➜  .claude ls debug           history.jsonl   plugins         session-env     statsig downloads       ide             projects…",
+      "summary": "Copy directory recursively with correct structure",
+      "messageCount": 6,
+      "created": "2025-12-31T14:30:57.708Z",
+      "modified": "2025-12-31T14:34:08.701Z",
+      "gitBranch": "",
+      "projectPath": "/Users/Mostafa",
+      "isSidechain": false
+    }
+  ],
+  "originalPath": "/Users/Mostafa"
+}

@@ -1,0 +1,198 @@
+2026-01-26T08:19:58.560Z [DEBUG] [init] configureGlobalMTLS starting
+2026-01-26T08:19:58.560Z [DEBUG] [init] configureGlobalMTLS complete
+2026-01-26T08:19:58.560Z [DEBUG] [init] configureGlobalAgents starting
+2026-01-26T08:19:58.560Z [DEBUG] [init] configureGlobalAgents complete
+2026-01-26T08:19:58.564Z [DEBUG] [STARTUP] Loading MCP configs...
+2026-01-26T08:19:58.569Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-01-26T08:19:58.569Z [DEBUG] [STARTUP] MCP configs loaded in 5ms
+2026-01-26T08:19:58.569Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-01-26T08:19:58.570Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-01-26T08:19:58.570Z [DEBUG] [STARTUP] Running setup()...
+2026-01-26T08:19:58.575Z [DEBUG] Stats cache is up to date
+2026-01-26T08:19:58.580Z [DEBUG] Loading skills from: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/Mostafa/.claude/skills, project=[]
+2026-01-26T08:19:58.596Z [DEBUG] installed_plugins.json doesn't exist, returning empty V2 object
+2026-01-26T08:19:58.598Z [ERROR] Error: Error: ENOENT: no such file or directory, scandir '/Library/Application Support/ClaudeCode/.claude/skills'
+    at readdirSync (unknown)
+    at <anonymous> (/$bunfs/root/claude:12:1903)
+    at AW (/$bunfs/root/claude:11:34882)
+    at readdirSync (/$bunfs/root/claude:12:1864)
+    at hGR (/$bunfs/root/claude:1482:380)
+    at hGR (/$bunfs/root/claude:1482:1350)
+    at <anonymous> (/$bunfs/root/claude:1482:4440)
+    at <anonymous> (/$bunfs/root/claude:1482:5171)
+    at A (/$bunfs/root/claude:11:7245)
+    at iq8 (/$bunfs/root/claude:4125:4342)
+    at async <anonymous> (/$bunfs/root/claude:5413:2332)
+2026-01-26T08:19:58.598Z [DEBUG] Error log sink initialized
+2026-01-26T08:19:58.607Z [DEBUG] Writing to temp file: /Users/Mostafa/.claude/todos/60ea7184-309d-4ada-a7df-0e7032fb1833-agent-60ea7184-309d-4ada-a7df-0e7032fb1833.json.tmp.22541.1769415598607
+2026-01-26T08:19:58.608Z [DEBUG] Temp file written successfully, size: 2 bytes
+2026-01-26T08:19:58.608Z [DEBUG] Renaming /Users/Mostafa/.claude/todos/60ea7184-309d-4ada-a7df-0e7032fb1833-agent-60ea7184-309d-4ada-a7df-0e7032fb1833.json.tmp.22541.1769415598607 to /Users/Mostafa/.claude/todos/60ea7184-309d-4ada-a7df-0e7032fb1833-agent-60ea7184-309d-4ada-a7df-0e7032fb1833.json
+2026-01-26T08:19:58.609Z [DEBUG] File /Users/Mostafa/.claude/todos/60ea7184-309d-4ada-a7df-0e7032fb1833-agent-60ea7184-309d-4ada-a7df-0e7032fb1833.json written atomically
+2026-01-26T08:19:58.618Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-01-26T08:19:58.618Z [DEBUG] Total plugin skills loaded: 0
+2026-01-26T08:19:58.618Z [DEBUG] Total plugin commands loaded: 0
+2026-01-26T08:19:58.618Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-01-26T08:19:58.627Z [DEBUG] Loaded 7 unique skills (managed: 0, user: 7, project: 0, legacy commands: 0)
+2026-01-26T08:19:58.627Z [DEBUG] [STARTUP] setup() completed in 57ms
+2026-01-26T08:19:58.627Z [DEBUG] [STARTUP] Loading commands and agents...
+2026-01-26T08:19:58.627Z [DEBUG] getSkills returning: 7 skill dir commands, 0 plugin skills, 0 bundled skills
+2026-01-26T08:19:58.629Z [DEBUG] Total plugin agents loaded: 0
+2026-01-26T08:19:58.630Z [DEBUG] [STARTUP] Commands and agents loaded in 3ms
+2026-01-26T08:19:58.630Z [DEBUG] [STARTUP] Running showSetupScreens()...
+2026-01-26T08:19:58.631Z [DEBUG] [render] initYoga starting
+2026-01-26T08:19:58.636Z [DEBUG] Acquired PID lock for 2.1.15 (PID 22541)
+2026-01-26T08:19:58.636Z [DEBUG] Acquired PID lock on running version: /Users/Mostafa/.local/share/claude/versions/2.1.15
+2026-01-26T08:19:58.640Z [DEBUG] [render] initYoga complete
+2026-01-26T08:19:58.642Z [DEBUG] [Claude in Chrome] Found chrome profiles: Profile 1, Default
+2026-01-26T08:19:58.643Z [DEBUG] Watching for changes in skill/command directories: /Users/Mostafa/.claude/skills...
+2026-01-26T08:19:58.691Z [DEBUG] [keybindings] KeybindingSetup initialized with 46 bindings, 0 warnings
+2026-01-26T08:19:58.719Z [DEBUG] [Claude in Chrome] Extension not found in any browser
+2026-01-26T08:19:58.729Z [DEBUG] [keybindings] Skipping file watcher - user customization disabled
+2026-01-26T08:19:58.806Z [DEBUG] Writing to temp file: /Users/Mostafa/.claude.json.tmp.22541.1769415598806
+2026-01-26T08:19:58.806Z [DEBUG] Preserving file permissions: 100600
+2026-01-26T08:19:58.807Z [DEBUG] Temp file written successfully, size: 9697 bytes
+2026-01-26T08:19:58.807Z [DEBUG] Applied original permissions to temp file
+2026-01-26T08:19:58.807Z [DEBUG] Renaming /Users/Mostafa/.claude.json.tmp.22541.1769415598806 to /Users/Mostafa/.claude.json
+2026-01-26T08:19:58.809Z [DEBUG] File /Users/Mostafa/.claude.json written atomically
+2026-01-26T08:19:59.274Z [DEBUG] Successfully refreshed marketplace: claude-plugins-official
+2026-01-26T08:19:59.274Z [DEBUG] Plugin autoupdate: checking installed plugins
+2026-01-26T08:19:59.459Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/Users/Mostafa/.local/share/claude/versions/2.1.15)
+2026-01-26T08:19:59.964Z [DEBUG] Writing to temp file: /Users/Mostafa/.claude.json.tmp.22541.1769415599964
+2026-01-26T08:19:59.964Z [DEBUG] Preserving file permissions: 100600
+2026-01-26T08:19:59.966Z [DEBUG] Temp file written successfully, size: 10079 bytes
+2026-01-26T08:19:59.966Z [DEBUG] Applied original permissions to temp file
+2026-01-26T08:19:59.966Z [DEBUG] Renaming /Users/Mostafa/.claude.json.tmp.22541.1769415599964 to /Users/Mostafa/.claude.json
+2026-01-26T08:19:59.968Z [DEBUG] File /Users/Mostafa/.claude.json written atomically
+2026-01-26T08:19:59.999Z [DEBUG] [Perfetto] initializePerfettoTracing called, env value: undefined
+2026-01-26T08:20:00.001Z [DEBUG] Grove: Cache stale, returning cached data and refreshing in background
+2026-01-26T08:20:00.005Z [DEBUG] [render] initYoga starting
+2026-01-26T08:20:00.007Z [DEBUG] [render] initYoga complete
+2026-01-26T08:20:00.009Z [DEBUG] [keybindings] KeybindingSetup initialized with 46 bindings, 0 warnings
+2026-01-26T08:20:00.011Z [DEBUG] [keybindings] Skipping file watcher - user customization disabled
+2026-01-26T08:20:00.055Z [DEBUG] Git remote URL: git@github.com:edecs-ai-org/agent-ws.git
+2026-01-26T08:20:00.055Z [DEBUG] Parsed repository: edecs-ai-org/agent-ws from git@github.com:edecs-ai-org/agent-ws.git
+2026-01-26T08:20:00.055Z [DEBUG] Parsed repository: edecs-ai-org/agent-ws from URL: git@github.com:edecs-ai-org/agent-ws.git
+2026-01-26T08:20:00.062Z [DEBUG] Writing to temp file: /Users/Mostafa/.claude.json.tmp.22541.1769415600062
+2026-01-26T08:20:00.062Z [DEBUG] Preserving file permissions: 100600
+2026-01-26T08:20:00.064Z [DEBUG] Temp file written successfully, size: 10158 bytes
+2026-01-26T08:20:00.064Z [DEBUG] Applied original permissions to temp file
+2026-01-26T08:20:00.064Z [DEBUG] Renaming /Users/Mostafa/.claude.json.tmp.22541.1769415600062 to /Users/Mostafa/.claude.json
+2026-01-26T08:20:00.067Z [DEBUG] File /Users/Mostafa/.claude.json written atomically
+2026-01-26T08:20:00.067Z [DEBUG] Added /Users/Mostafa/edecs-ai/agent-ws to tracked paths for repo edecs-ai-org/agent-ws
+2026-01-26T08:20:00.201Z [DEBUG] Metrics opt-out API response: enabled=true, vcsLinking=false
+2026-01-26T08:20:00.390Z [DEBUG] Writing to temp file: /Users/Mostafa/.claude.json.tmp.22541.1769415600390
+2026-01-26T08:20:00.390Z [DEBUG] Preserving file permissions: 100600
+2026-01-26T08:20:00.391Z [DEBUG] Temp file written successfully, size: 10158 bytes
+2026-01-26T08:20:00.391Z [DEBUG] Applied original permissions to temp file
+2026-01-26T08:20:00.391Z [DEBUG] Renaming /Users/Mostafa/.claude.json.tmp.22541.1769415600390 to /Users/Mostafa/.claude.json
+2026-01-26T08:20:00.393Z [DEBUG] File /Users/Mostafa/.claude.json written atomically
+2026-01-26T08:20:00.401Z [DEBUG] [STARTUP] showSetupScreens() completed in 1771ms
+2026-01-26T08:20:00.401Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-01-26T08:20:00.401Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-01-26T08:20:00.401Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-01-26T08:20:00.401Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-01-26T08:20:00.401Z [DEBUG] [API:auth] OAuth token check starting
+2026-01-26T08:20:00.408Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-01-26T08:20:00.409Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-01-26T08:20:00.409Z [DEBUG] Total LSP servers loaded: 0
+2026-01-26T08:20:00.409Z [DEBUG] [API:auth] OAuth token check complete
+2026-01-26T08:20:00.414Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2026-01-26T08:20:00.414Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2026-01-26T08:20:00.414Z [DEBUG] LSP manager initialized with 0 servers
+2026-01-26T08:20:00.422Z [DEBUG] Writing to temp file: /Users/Mostafa/.claude.json.tmp.22541.1769415600422
+2026-01-26T08:20:00.423Z [DEBUG] Preserving file permissions: 100600
+2026-01-26T08:20:00.423Z [DEBUG] Temp file written successfully, size: 10158 bytes
+2026-01-26T08:20:00.423Z [DEBUG] Applied original permissions to temp file
+2026-01-26T08:20:00.423Z [DEBUG] Renaming /Users/Mostafa/.claude.json.tmp.22541.1769415600422 to /Users/Mostafa/.claude.json
+2026-01-26T08:20:00.426Z [DEBUG] File /Users/Mostafa/.claude.json written atomically
+2026-01-26T08:20:00.434Z [DEBUG] LSP server manager initialized successfully
+2026-01-26T08:20:00.434Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-01-26T08:20:00.436Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2026-01-26T08:20:00.436Z [DEBUG] Found 0 hook matchers in settings
+2026-01-26T08:20:00.436Z [DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+2026-01-26T08:20:00.437Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-01-26T08:20:00.437Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-01-26T08:20:00.444Z [DEBUG] [render] initYoga starting
+2026-01-26T08:20:00.444Z [DEBUG] Skills and commands included in Skill tool: systematic-debugging, skill-creator, frontend-design, Agent Development, pptx, doc-coauthoring, langgraph-agent-development
+2026-01-26T08:20:00.444Z [DEBUG] [render] initYoga complete
+2026-01-26T08:20:00.446Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-01-26T08:20:00.446Z [DEBUG] [API:auth] OAuth token check starting
+2026-01-26T08:20:00.446Z [DEBUG] [API:auth] OAuth token check complete
+2026-01-26T08:20:00.456Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-01-26T08:20:00.456Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-01-26T08:20:00.459Z [DEBUG] [keybindings] KeybindingSetup initialized with 46 bindings, 0 warnings
+2026-01-26T08:20:00.517Z [DEBUG] Writing to temp file: /Users/Mostafa/.claude.json.tmp.22541.1769415600517
+2026-01-26T08:20:00.517Z [DEBUG] Preserving file permissions: 100600
+2026-01-26T08:20:00.518Z [DEBUG] Temp file written successfully, size: 10158 bytes
+2026-01-26T08:20:00.518Z [DEBUG] Applied original permissions to temp file
+2026-01-26T08:20:00.518Z [DEBUG] Renaming /Users/Mostafa/.claude.json.tmp.22541.1769415600517 to /Users/Mostafa/.claude.json
+2026-01-26T08:20:00.519Z [DEBUG] File /Users/Mostafa/.claude.json written atomically
+2026-01-26T08:20:00.526Z [DEBUG] Writing to temp file: /Users/Mostafa/.claude.json.tmp.22541.1769415600526
+2026-01-26T08:20:00.526Z [DEBUG] Preserving file permissions: 100600
+2026-01-26T08:20:00.527Z [DEBUG] Temp file written successfully, size: 10158 bytes
+2026-01-26T08:20:00.527Z [DEBUG] Applied original permissions to temp file
+2026-01-26T08:20:00.527Z [DEBUG] Renaming /Users/Mostafa/.claude.json.tmp.22541.1769415600526 to /Users/Mostafa/.claude.json
+2026-01-26T08:20:00.528Z [DEBUG] File /Users/Mostafa/.claude.json written atomically
+2026-01-26T08:20:00.534Z [DEBUG] [keybindings] Skipping file watcher - user customization disabled
+2026-01-26T08:20:00.534Z [DEBUG] [REPL:mount] REPL mounted, disabled=false
+2026-01-26T08:20:00.537Z [DEBUG] Official marketplace auto-install skipped: already_attempted
+2026-01-26T08:20:00.537Z [DEBUG] performStartupChecks called
+2026-01-26T08:20:00.538Z [DEBUG] Starting background plugin installations
+2026-01-26T08:20:00.538Z [DEBUG] performBackgroundPluginInstallations called
+2026-01-26T08:20:00.541Z [DEBUG] AutoUpdaterWrapper: Installation type: native
+2026-01-26T08:20:00.828Z [DEBUG] [claudeai-mcp] Checking gate (cached)...
+2026-01-26T08:20:00.828Z [DEBUG] [claudeai-mcp] Gate returned: false
+2026-01-26T08:20:00.828Z [DEBUG] [claudeai-mcp] Disabled via gate
+2026-01-26T08:20:00.831Z [DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+2026-01-26T08:20:00.840Z [DEBUG] Writing to temp file: /Users/Mostafa/.claude.json.tmp.22541.1769415600840
+2026-01-26T08:20:00.840Z [DEBUG] Preserving file permissions: 100600
+2026-01-26T08:20:00.841Z [DEBUG] Temp file written successfully, size: 10201 bytes
+2026-01-26T08:20:00.841Z [DEBUG] Applied original permissions to temp file
+2026-01-26T08:20:00.841Z [DEBUG] Renaming /Users/Mostafa/.claude.json.tmp.22541.1769415600840 to /Users/Mostafa/.claude.json
+2026-01-26T08:20:00.843Z [DEBUG] File /Users/Mostafa/.claude.json written atomically
+2026-01-26T08:20:00.849Z [DEBUG] Loaded plugins - Enabled: 0, Disabled: 0, Commands: 0, Agents: 0, Errors: 0
+2026-01-26T08:20:00.853Z [DEBUG] Tool search disabled for model 'claude-haiku-4-5-20251001': model does not support tool_reference blocks. This feature is only available on Claude Sonnet 4+, Opus 4+, and newer models.
+2026-01-26T08:20:00.853Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-01-26T08:20:00.854Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.15.99f; cc_entrypoint=cli
+2026-01-26T08:20:00.856Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-01-26T08:20:00.856Z [DEBUG] [API:auth] OAuth token check starting
+2026-01-26T08:20:00.857Z [DEBUG] [API:auth] OAuth token check complete
+2026-01-26T08:20:00.885Z [DEBUG] Writing to temp file: /Users/Mostafa/.claude.json.tmp.22541.1769415600885
+2026-01-26T08:20:00.885Z [DEBUG] Preserving file permissions: 100600
+2026-01-26T08:20:00.886Z [DEBUG] Temp file written successfully, size: 10201 bytes
+2026-01-26T08:20:00.886Z [DEBUG] Applied original permissions to temp file
+2026-01-26T08:20:00.886Z [DEBUG] Renaming /Users/Mostafa/.claude.json.tmp.22541.1769415600885 to /Users/Mostafa/.claude.json
+2026-01-26T08:20:00.888Z [DEBUG] File /Users/Mostafa/.claude.json written atomically
+2026-01-26T08:20:00.901Z [DEBUG] Writing to temp file: /Users/Mostafa/.claude.json.tmp.22541.1769415600901
+2026-01-26T08:20:00.901Z [DEBUG] Preserving file permissions: 100600
+2026-01-26T08:20:00.902Z [DEBUG] Temp file written successfully, size: 10382 bytes
+2026-01-26T08:20:00.902Z [DEBUG] Applied original permissions to temp file
+2026-01-26T08:20:00.902Z [DEBUG] Renaming /Users/Mostafa/.claude.json.tmp.22541.1769415600901 to /Users/Mostafa/.claude.json
+2026-01-26T08:20:00.904Z [DEBUG] File /Users/Mostafa/.claude.json written atomically
+2026-01-26T08:20:00.935Z [DEBUG] Writing to temp file: /Users/Mostafa/.claude.json.tmp.22541.1769415600935
+2026-01-26T08:20:00.935Z [DEBUG] Preserving file permissions: 100600
+2026-01-26T08:20:00.936Z [DEBUG] Temp file written successfully, size: 10382 bytes
+2026-01-26T08:20:00.936Z [DEBUG] Applied original permissions to temp file
+2026-01-26T08:20:00.936Z [DEBUG] Renaming /Users/Mostafa/.claude.json.tmp.22541.1769415600935 to /Users/Mostafa/.claude.json
+2026-01-26T08:20:00.938Z [DEBUG] File /Users/Mostafa/.claude.json written atomically
+2026-01-26T08:20:01.471Z [DEBUG] Stream started - received first chunk
+2026-01-26T08:20:01.671Z [DEBUG] Writing to temp file: /Users/Mostafa/.claude.json.tmp.22541.1769415601671
+2026-01-26T08:20:01.671Z [DEBUG] Preserving file permissions: 100600
+2026-01-26T08:20:01.672Z [DEBUG] Temp file written successfully, size: 10606 bytes
+2026-01-26T08:20:01.672Z [DEBUG] Applied original permissions to temp file
+2026-01-26T08:20:01.672Z [DEBUG] Renaming /Users/Mostafa/.claude.json.tmp.22541.1769415601671 to /Users/Mostafa/.claude.json
+2026-01-26T08:20:01.674Z [DEBUG] File /Users/Mostafa/.claude.json written atomically
+2026-01-26T08:20:01.815Z [DEBUG] Checking for native installer update to version 2.1.19
+2026-01-26T08:20:01.821Z [DEBUG] Downloading native installer version 2.1.19
+2026-01-26T08:20:29.997Z [DEBUG] AutoUpdaterWrapper: Installation type: native
+2026-01-26T08:20:36.972Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-01-26T08:20:36.972Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-01-26T08:20:36.986Z [DEBUG] High write ratio: blit=0, write=1057 (100.0% writes), screen=30x146
+2026-01-26T08:20:37.007Z [DEBUG] Started caffeinate to prevent sleep
+2026-01-26T08:20:55.888Z [DEBUG] Atomically installed binary to /Users/Mostafa/.local/share/claude/versions/2.1.19
+2026-01-26T08:20:55.900Z [DEBUG] Created directory /Users/Mostafa/.local/bin for symlink
+2026-01-26T08:20:55.902Z [DEBUG] Atomically updated symlink /Users/Mostafa/.local/bin/claude -> /Users/Mostafa/.local/share/claude/versions/2.1.19
+2026-01-26T08:20:55.902Z [DEBUG] Successfully updated to version 2.1.19
+2026-01-26T08:21:04.271Z [DEBUG] Getting matching hook commands for SessionEnd with query: other
+2026-01-26T08:21:04.271Z [DEBUG] Found 0 hook matchers in settings
+2026-01-26T08:21:04.271Z [DEBUG] Matched 0 unique hooks for query "other" (0 before deduplication)
