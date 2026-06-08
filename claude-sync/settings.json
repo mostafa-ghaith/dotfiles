@@ -1,1 +1,56 @@
-{}
+{
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd ~/dotfiles || exit 0; git pull --rebase --autostash -q 2>/dev/null || true",
+            "async": true,
+            "timeout": 30,
+            "statusMessage": "Syncing dotfiles (pull)…"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd ~/dotfiles || exit 0; git add -A; git diff --cached --quiet || git commit -q -m \"auto-sync $(date '+%F %T') [$(hostname -s)]\"; git pull --rebase --autostash -q 2>/dev/null; git push -q 2>/dev/null || true",
+            "timeout": 30,
+            "statusMessage": "Syncing dotfiles (commit+push)…"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/dotfiles/claude-sync/statusline-command.sh"
+  },
+  "effortLevel": "high",
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true,
+    "posthog@claude-plugins-official": true,
+    "firecrawl@claude-plugins-official": true,
+    "supabase@claude-plugins-official": true,
+    "microsoft-docs@claude-plugins-official": true,
+    "devops-automation@claude-code-templates": true,
+    "docx-template@eigenpal": true
+  }
+}
