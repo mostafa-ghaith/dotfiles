@@ -37,6 +37,14 @@
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
+  "extraKnownMarketplaces": {
+    "eigenpal": {
+      "source": { "source": "github", "repo": "eigenpal/docx-template-skill" }
+    },
+    "claude-code-templates": {
+      "source": { "source": "github", "repo": "davila7/claude-code-templates" }
+    }
+  },
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true,
     "github@claude-plugins-official": true,
