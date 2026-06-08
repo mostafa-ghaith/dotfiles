@@ -28,19 +28,19 @@ All three symlink the shared items below to `~/dotfiles/claude-sync/`.
 - `projects/` — session transcripts + auto-memory, tied to absolute repo paths, machine-local
 - `plugins/` cache and `.claude.json` — installed-plugin cache + auth/MCP state, machine-local
 
-## Plugins / marketplaces caveat
-`enabledPlugins` syncs via `settings.json`, but **marketplaces are registered per machine
-per account** (in `plugins/`, which we don't sync). The built-in `claude-plugins-official`
-is always available; the two third-party marketplaces must be added once per config dir:
+## Plugins — fully synced via settings.json
+Two keys in the synced `settings.json` together define the full plugin set; the
+plugin *code* is NOT synced — each machine fetches its own copy from the declared
+sources (avoids repo bloat, stale code, and concurrent-cache corruption):
+- `enabledPlugins` — which plugins are on.
+- `extraKnownMarketplaces` — where to fetch the non-official ones (`eigenpal`,
+  `claude-code-templates`). The built-in `claude-plugins-official` needs no entry.
 
-```bash
-# inside a Claude session for each account/dir:
-/plugin marketplace add eigenpal/docx-template-skill
-/plugin marketplace add davila7/claude-code-templates
-```
-
-Until added, `docx-template@eigenpal` and `devops-automation@claude-code-templates`
-stay enabled-but-not-loaded.
+Result: a fresh machine/account that loads this settings.json knows both *which*
+plugins to enable and *where* to get them, and installs them automatically — no
+manual `/plugin marketplace add`. Takes effect on next session start (not the
+already-running one). Adding a new plugin later: enable it, and if it's from a new
+marketplace, add that marketplace to `extraKnownMarketplaces`.
 
 ## Setup on a new machine
 ```bash
