@@ -9,9 +9,9 @@
           {
             "type": "command",
             "command": "cd ~/dotfiles || exit 0; git pull --rebase --autostash -q 2>/dev/null || true",
-            "async": true,
             "timeout": 30,
-            "statusMessage": "Syncing dotfiles (pull)…"
+            "statusMessage": "Syncing dotfiles (pull)…",
+            "async": true
           }
         ]
       }
@@ -33,18 +33,6 @@
     "type": "command",
     "command": "bash ~/dotfiles/claude-sync/statusline-command.sh"
   },
-  "effortLevel": "high",
-  "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "skipWorkflowUsageWarning": true,
-  "extraKnownMarketplaces": {
-    "eigenpal": {
-      "source": { "source": "github", "repo": "eigenpal/docx-template-skill" }
-    },
-    "claude-code-templates": {
-      "source": { "source": "github", "repo": "davila7/claude-code-templates" }
-    }
-  },
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true,
     "github@claude-plugins-official": true,
@@ -54,11 +42,29 @@
     "skill-creator@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
     "ralph-loop@claude-plugins-official": true,
-    "posthog@claude-plugins-official": true,
+    "posthog@claude-plugins-official": false,
     "firecrawl@claude-plugins-official": true,
-    "supabase@claude-plugins-official": true,
+    "supabase@claude-plugins-official": false,
     "microsoft-docs@claude-plugins-official": true,
     "devops-automation@claude-code-templates": true,
     "docx-template@eigenpal": true
-  }
+  },
+  "extraKnownMarketplaces": {
+    "eigenpal": {
+      "source": {
+        "source": "github",
+        "repo": "eigenpal/docx-template-skill"
+      }
+    },
+    "claude-code-templates": {
+      "source": {
+        "source": "github",
+        "repo": "davila7/claude-code-templates"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "skipWorkflowUsageWarning": true,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
 }
