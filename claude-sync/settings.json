@@ -2,7 +2,6 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "claude-fable-5[1m]",
   "hooks": {
     "SessionStart": [
       {
@@ -48,7 +47,8 @@
     "supabase@claude-plugins-official": false,
     "microsoft-docs@claude-plugins-official": true,
     "devops-automation@claude-code-templates": true,
-    "docx-template@eigenpal": true
+    "docx-template@eigenpal": true,
+    "last30days@last30days-skill": true
   },
   "extraKnownMarketplaces": {
     "eigenpal": {
@@ -61,6 +61,12 @@
       "source": {
         "source": "github",
         "repo": "davila7/claude-code-templates"
+      }
+    },
+    "last30days-skill": {
+      "source": {
+        "source": "github",
+        "repo": "mvanhorn/last30days-skill"
       }
     }
   },
