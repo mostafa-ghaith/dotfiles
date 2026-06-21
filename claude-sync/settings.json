@@ -72,7 +72,8 @@
   },
   "effortLevel": "xhigh",
   "skipWorkflowUsageWarning": true,
+  "theme": "dark-ansi",
+  "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "inputNeededNotifEnabled": true
+  "skipAutoPermissionPrompt": true
 }
