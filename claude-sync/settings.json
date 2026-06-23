@@ -68,6 +68,12 @@
         "source": "github",
         "repo": "mvanhorn/last30days-skill"
       }
+    },
+    "understand-anything": {
+      "source": {
+        "source": "github",
+        "repo": "Egonex-AI/Understand-Anything"
+      }
     }
   },
   "effortLevel": "xhigh",
