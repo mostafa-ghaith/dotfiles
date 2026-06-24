@@ -43,7 +43,7 @@
     "claude-md-management@claude-plugins-official": true,
     "ralph-loop@claude-plugins-official": true,
     "posthog@claude-plugins-official": false,
-    "firecrawl@claude-plugins-official": true,
+    "firecrawl@claude-plugins-official": false,
     "supabase@claude-plugins-official": false,
     "microsoft-docs@claude-plugins-official": true,
     "devops-automation@claude-code-templates": true,
