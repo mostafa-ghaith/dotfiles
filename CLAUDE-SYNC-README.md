@@ -4,6 +4,10 @@ This repo syncs **only `CLAUDE.md`** (the global memory/profile) across machines
 Everything else — `settings.json`, the statusline, plugins, skills, conversations —
 is **machine-local** and managed by hand.
 
+> Consolidating another machine off the old multi-account (`CLAUDE_CONFIG_DIR`) setup?
+> See `CLAUDE-CONSOLIDATION-RUNBOOK.md` — it pins the initial/final states so Claude
+> Code can generate a tailored migration script on that machine.
+
 > Simplified 2026-06-27. Previously this repo also symlinked `settings.json`,
 > `skills/`, `rules/`, `agents/`, `commands/` into `~/.claude`; that got brittle, so
 > it was dropped. See `SKILLS-I-HAD.md` for the old skill list and
