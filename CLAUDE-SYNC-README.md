@@ -22,9 +22,10 @@ That's it. Editing `~/.claude/CLAUDE.md` edits this repo's copy directly.
   `plugins/`, `.claude.json` — per-machine state, never synced.
 
 ## Config directory
-Claude Code uses the default `~/.claude`. Do **not** set `CLAUDE_CONFIG_DIR`
-(that's what created the old multi-account mess). If `claude` ever points at the
-wrong place, check: `echo $CLAUDE_CONFIG_DIR` — it should be empty.
+Claude Code uses the default `~/.claude`. Do **not** set `CLAUDE_CONFIG_DIR` —
+that's what created the old multi-account mess (`~/.claude-account1`, since removed
+on 2026-06-27). If `claude` ever points at the wrong place, check:
+`echo $CLAUDE_CONFIG_DIR` — it should be empty.
 
 ## Setup on a new machine
 ```bash

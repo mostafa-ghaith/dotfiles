@@ -39,5 +39,5 @@ grep -rl "some phrase" ~/claude-backups/conversations-2026-06-27        # find b
 
 ## Notes
 - This backup lives outside the repo on purpose — don't commit it (it's ~390M).
-- `~/.claude-account1` itself can be deleted once you've confirmed you don't need
-  anything else from it (its conversations are already in this snapshot).
+- `~/.claude-account1` was **deleted on 2026-06-27** after confirming its conversations
+  were captured in this snapshot. Only the single default `~/.claude` remains.
