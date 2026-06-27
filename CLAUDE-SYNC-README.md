@@ -1,70 +1,75 @@
 # Claude Code Sync Setup
 
-Syncs portable Claude Code config across machines and across all three config
-directories used on each machine.
+Syncs portable Claude Code config across machines via this `dotfiles` repo.
 
-## Config directories (per machine)
-Claude Code uses whatever `CLAUDE_CONFIG_DIR` points to, else `~/.claude`.
+**Single account (corp).** One config dir — `~/.claude` — used by plain `claude`
+(no `CLAUDE_CONFIG_DIR`, no aliases).
 
-| Dir | Launched by | Account |
-|-----|-------------|---------|
-| `~/.claude` | `claude` with NO alias (IDE/app/direct binary) | default |
-| `~/.claude-account1` | `claude` alias (`CLAUDE_CONFIG_DIR=~/.claude-account1`) | corp |
-| `~/.claude-account2` | `claudeMG` alias (`CLAUDE_CONFIG_DIR=~/.claude-account2`) | personal |
+> Migrated 2026-06-27 from the old 3-dir / 2-alias layout
+> (`~/.claude` + `~/.claude-account1` + `~/.claude-account2`). To migrate a
+> machine that still has the old layout, run
+> [`claude-sync/consolidate.sh`](#migrating-a-machine-off-the-old-multi-account-setup).
 
-All three symlink the shared items below to `~/dotfiles/claude-sync/`.
+## Config directory
+Claude Code uses `~/.claude` (the default, since no `CLAUDE_CONFIG_DIR` is set).
+It symlinks the shared items below to `~/dotfiles/claude-sync/`. State lives in
+`~/.claude.json`.
 
 ## What's synced (portable, read-mostly)
-- `settings.json` — user settings + `enabledPlugins` (this is how plugin *enablement* syncs)
-- `CLAUDE.md` — global memory / profile (identical for all accounts)
+- `settings.json` — user settings + `enabledPlugins` (+ `extraKnownMarketplaces`)
+- `CLAUDE.md` — global memory / profile
 - `skills/` — custom skills
-- `statusline-command.sh` — referenced by settings via `~/dotfiles/claude-sync/...` (portable path)
+- `rules/`, `agents/`, `commands/` — linked if present in `claude-sync/`
+- `statusline-command.sh` — referenced by settings via a portable `~/dotfiles/...` path
 
-`agents/` and `rules/` are currently empty — add them to the link loop below once they have content.
+## What's NOT synced (machine-local — do NOT sync)
+- `settings.local.json` — per-machine permissions/overrides
+- `projects/`, `history*`, `todos/`, `shell-snapshots/` — transcripts + auto-memory,
+  embed absolute paths, written constantly, conflict-prone across machines
+- `plugins/` cache and `.claude.json` — plugin code cache + auth/MCP state; each
+  machine fetches/holds its own
 
-## What's NOT synced (machine/account-specific — do NOT sync)
-- `settings.local.json` — per-account permissions/overrides
-- `sessions/`, `history.jsonl` — embed absolute paths, written constantly, conflict across machines
-- `projects/` — session transcripts + auto-memory, tied to absolute repo paths, machine-local
-- `plugins/` cache and `.claude.json` — installed-plugin cache + auth/MCP state, machine-local
-
-## Plugins — fully synced via settings.json
-Two keys in the synced `settings.json` together define the full plugin set; the
-plugin *code* is NOT synced — each machine fetches its own copy from the declared
-sources (avoids repo bloat, stale code, and concurrent-cache corruption):
+## Plugins — defined via settings.json
+Two keys in the synced `settings.json` fully define the plugin set; the plugin
+*code* is fetched per-machine on first launch (avoids repo bloat / cache corruption):
 - `enabledPlugins` — which plugins are on.
 - `extraKnownMarketplaces` — where to fetch the non-official ones (`eigenpal`,
-  `claude-code-templates`). The built-in `claude-plugins-official` needs no entry.
+  `claude-code-templates`, `last30days-skill`). The official marketplace is built-in.
 
-Result: a fresh machine/account that loads this settings.json knows both *which*
-plugins to enable and *where* to get them, and installs them automatically — no
-manual `/plugin marketplace add`. Takes effect on next session start (not the
-already-running one). Adding a new plugin later: enable it, and if it's from a new
-marketplace, add that marketplace to `extraKnownMarketplaces`.
-
-## Setup on a new machine
+## Setup on a NEW machine (fresh, single account)
 ```bash
 git clone git@github.com:mostafa-ghaith/dotfiles.git ~/dotfiles
 DOT=~/dotfiles/claude-sync
-for ACC in ~/.claude ~/.claude-account1 ~/.claude-account2; do
-  mkdir -p "$ACC"
-  for item in settings.json CLAUDE.md skills; do
-    rm -rf "$ACC/$item"
-    ln -s "$DOT/$item" "$ACC/$item"
-  done
+mkdir -p ~/.claude
+for item in settings.json CLAUDE.md skills rules agents commands; do
+  [ -e "$DOT/$item" ] || continue
+  rm -rf ~/.claude/"$item"
+  ln -s "$DOT/$item" ~/.claude/"$item"
 done
 chmod +x "$DOT/statusline-command.sh"
-# then add the two marketplaces (above) once per account
 ```
-Make sure the shell aliases exist (`~/.zshrc`):
+No aliases needed — run `claude`. (Requires `~/.local/bin` on PATH; otherwise add
+`alias claude='~/.local/bin/claude'`.) `jq` + `git` must be installed (hooks/statusline use them).
+
+## Migrating a machine off the old multi-account setup
+On each machine that still has `~/.claude-account1` / `~/.claude-account2`:
 ```bash
-alias claude='CLAUDE_CONFIG_DIR=~/.claude-account1 ~/.local/bin/claude'
-alias claudeMG='CLAUDE_CONFIG_DIR=~/.claude-account2 ~/.local/bin/claude'
+cd ~/dotfiles && git pull
+bash ~/dotfiles/claude-sync/consolidate.sh   # plain terminal, ALL Claude sessions closed
 ```
+It merges every account's conversations into `~/.claude`, adopts the corp
+login/state, links the synced config, drops RTK + the aliases, and deletes the old
+account dirs — after writing a full backup tarball to `~/claude-consolidate-backup-*`.
+
+> Conversations are machine-local and do NOT sync between Macs — each machine keeps
+> its own history. Only the config above syncs.
 
 ## Daily workflow
+The `SessionStart` / `SessionEnd` hooks in `settings.json` auto pull / commit+push
+`~/dotfiles`. Manually:
 ```bash
+cd ~/dotfiles && git pull                                              # start of work
 cd ~/dotfiles && git add -A && git commit -m "Update Claude config" && git push   # after edits
-cd ~/dotfiles && git pull                                                          # on the other Mac
 ```
-Because items are symlinked, editing them in any account dir edits the dotfiles copy directly.
+Because the items are symlinked, editing a skill / `CLAUDE.md` / `settings.json` in
+`~/.claude` edits the dotfiles copy directly.
