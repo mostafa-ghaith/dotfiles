@@ -13,3 +13,5 @@ Full-stack AI engineer building Keplon (agentic systems / process automation). m
 ## New repos
 - Put in `/Users/Mostafa/projects`; confirm folder name + whether to create a repo.
 - Private, under `mostafa-ghaith` (never `edecs-ai`). Two `gh` accounts authed here — check which is active before pushing.
+
+@RTK.md
