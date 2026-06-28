@@ -1,4 +1,13 @@
 .claude/plugins/
 
+# Sync ONLY claude-sync/CLAUDE.md. Ignore everything else that ever lands in
+# claude-sync/ (settings.json, skills/, .claude/, plugins...) so the old
+# skills/settings sync creep can never come back.
+claude-sync/*
+!claude-sync/CLAUDE.md
+
+# Local backup helper outputs (never commit conversations/tarballs)
+claude-backups/
+
 .DS_Store
 **/.DS_Store
