@@ -14,4 +14,10 @@ Full-stack AI engineer building Keplon (agentic systems / process automation). m
 - Put in `/Users/Mostafa/projects`; confirm folder name + whether to create a repo.
 - Private, under `mostafa-ghaith` (never `edecs-ai`). Two `gh` accounts authed here — check which is active before pushing.
 
+## Working standards
+- **Commit messages:** never auto-add your agent name as a co-author.
+- **Technical decisions:** don't give much weight to development cost. Prefer quality, simplicity, robustness, scalability, and long-term maintainability.
+- **Bug fixes:** start by reproducing the bug E2E, as close to how an end user hits it as possible. That's how you find the real problem, so your fix actually solves it.
+- **Notice-and-fix:** when E2E-testing, be picky about the UI — obsess over pixel perfection — and hold the same bar for engineering excellence (lint, test failures, flakiness). If something's clearly off, even if unrelated to the current task, don't let it slide. On feature work, flag it and either fix it inline (if small or related) or suggest an issue in the corresponding repo if it deserves one.
+
 @RTK.md
