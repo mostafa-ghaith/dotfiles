@@ -47,7 +47,10 @@ the default `~/.claude`.
 ## Final state — the target (verified on this Mac)
 
 - **One** config dir: `~/.claude`. No `~/.claude-account*` dirs.
-- `~/.claude/CLAUDE.md` is a symlink → `~/dotfiles/claude-sync/CLAUDE.md` (the only synced file).
+- `~/dotfiles/claude-sync/AGENTS.md` is the only synced instruction file.
+- `~/.codex/AGENTS.md` is a symlink → `~/dotfiles/claude-sync/AGENTS.md`.
+- `~/.claude/CLAUDE.md` is a machine-local wrapper that imports the canonical
+  `AGENTS.md`, then imports Claude-only `~/.claude/RTK.md`.
 - `CLAUDE_CONFIG_DIR` is **empty/unset** everywhere (no alias, no `export`).
 - `type claude` → `/Users/<you>/.local/bin/claude` (a real binary, **not** an alias).
 - `~/.zshrc` has **zero** claude references.
@@ -60,7 +63,8 @@ echo "[$CLAUDE_CONFIG_DIR]"          # -> []   (empty)
 type claude                          # -> .../.local/bin/claude  (NOT 'aliased to ...')
 grep -ni claude ~/.zshrc             # -> no CLAUDE_CONFIG_DIR / no claude alias lines
 ls -ld ~/.claude-account*            # -> no matches found
-readlink ~/.claude/CLAUDE.md         # -> ~/dotfiles/claude-sync/CLAUDE.md
+readlink ~/.codex/AGENTS.md          # -> ~/dotfiles/claude-sync/AGENTS.md
+sed -n '1,5p' ~/.claude/CLAUDE.md    # -> @../dotfiles/.../AGENTS.md, then @RTK.md
 claude   # launch, confirm it's the account you intend to keep
 ```
 
@@ -79,11 +83,15 @@ claude   # launch, confirm it's the account you intend to keep
 3. **Strip the aliases.** Remove the `alias claude=...` and `alias claudeMG=...` lines
    from `~/.zshrc` (and `~/.zprofile`/`~/.bashrc` if present). Ensure no global
    `export CLAUDE_CONFIG_DIR`.
-4. **Set up the symlink.**
+4. **Set up the shared instruction loaders.**
    ```bash
-   mkdir -p ~/.claude
+   mkdir -p ~/.claude ~/.codex
+
+   rm -f ~/.codex/AGENTS.md
+   ln -s ~/dotfiles/claude-sync/AGENTS.md ~/.codex/AGENTS.md
+
    rm -f ~/.claude/CLAUDE.md
-   ln -s ~/dotfiles/claude-sync/CLAUDE.md ~/.claude/CLAUDE.md
+   printf '@../dotfiles/claude-sync/AGENTS.md\n\n@RTK.md\n' > ~/.claude/CLAUDE.md
    ```
 5. **Verify** (checklist above) in a *new* shell.
 6. **Print (do not run) the deletes** for the user to paste after verifying:

@@ -1,8 +1,9 @@
-# Claude Code sync
+# Claude and Codex instruction sync
 
-This repo syncs **only `CLAUDE.md`** (the global memory/profile) across machines.
-Everything else — `settings.json`, the statusline, plugins, skills, conversations —
-is **machine-local** and managed by hand.
+This repo syncs **only `claude-sync/AGENTS.md`** as the canonical global instruction
+file across machines. Claude Code and Codex use small machine-local loaders that point
+to that file. Everything else — settings, statuslines, plugins, skills, conversations,
+and authentication — is **machine-local** and managed by hand.
 
 > Consolidating another machine off the old multi-account (`CLAUDE_CONFIG_DIR`) setup?
 > See `CLAUDE-CONSOLIDATION-RUNBOOK.md` — it pins the initial/final states so Claude
@@ -14,9 +15,13 @@ is **machine-local** and managed by hand.
 > `CONVERSATIONS-BACKUP.md` for the conversation snapshot.
 
 ## What syncs
-- `claude-sync/CLAUDE.md` → symlinked to `~/.claude/CLAUDE.md`.
+- `claude-sync/AGENTS.md` — the only Git-tracked shared instruction file.
+- `~/.codex/AGENTS.md` — a machine-local symlink to the canonical file.
+- `~/.claude/CLAUDE.md` — a machine-local wrapper that imports the canonical file,
+  then imports Claude-only `~/.claude/RTK.md`.
 
-That's it. Editing `~/.claude/CLAUDE.md` edits this repo's copy directly.
+Edit shared instructions only in `~/dotfiles/claude-sync/AGENTS.md`. Do not duplicate
+them in either machine-local loader.
 
 ## What is machine-local (NOT synced)
 - `~/.claude/settings.json` — real local file (statusline, plugins, hooks, theme).
@@ -34,16 +39,31 @@ on 2026-06-27). If `claude` ever points at the wrong place, check:
 ## Setup on a new machine
 ```bash
 git clone git@github.com:mostafa-ghaith/dotfiles.git ~/dotfiles
-mkdir -p ~/.claude
-rm -rf ~/.claude/CLAUDE.md
-ln -s ~/dotfiles/claude-sync/CLAUDE.md ~/.claude/CLAUDE.md
+mkdir -p ~/.claude ~/.codex
+
+rm -f ~/.codex/AGENTS.md
+ln -s ~/dotfiles/claude-sync/AGENTS.md ~/.codex/AGENTS.md
+
+rm -f ~/.claude/CLAUDE.md
+printf '@../dotfiles/claude-sync/AGENTS.md\n\n@RTK.md\n' > ~/.claude/CLAUDE.md
 ```
-Then run `claude`, log in, and set up `settings.json` / skills locally as you like.
+Then start new Claude and Codex sessions. Set up authentication, settings, and skills
+locally as needed.
+
+Verify the loaders:
+```bash
+readlink ~/.codex/AGENTS.md
+sed -n '1,5p' ~/.claude/CLAUDE.md
+```
+
+The Codex path should resolve to `~/dotfiles/claude-sync/AGENTS.md`. The Claude file
+should contain only the two imports shown above. If RTK is not installed on that machine,
+remove the `@RTK.md` line.
 
 ## Auto-sync
 `~/.claude/settings.json` has `SessionStart` / `SessionEnd` hooks that
 `git pull` / `git commit + push` `~/dotfiles` automatically. Manually:
 ```bash
 cd ~/dotfiles && git pull
-cd ~/dotfiles && git add -A && git commit -m "Update CLAUDE.md" && git push
+cd ~/dotfiles && git add claude-sync/AGENTS.md && git commit -m "Update global instructions" && git push
 ```
